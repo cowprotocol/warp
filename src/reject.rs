@@ -341,6 +341,10 @@ impl Rejection {
     pub fn is_not_found(&self) -> bool {
         matches!(self.reason, Reason::NotFound)
     }
+
+    pub fn default_response(&self) -> crate::reply::Response {
+        self.into_response()
+    }
 }
 
 impl<T: Reject> From<T> for Rejection {
