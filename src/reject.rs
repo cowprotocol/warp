@@ -342,6 +342,8 @@ impl Rejection {
         matches!(self.reason, Reason::NotFound)
     }
 
+    /// Turns the rejection into a default response. This is useful to
+    /// set the appropriate CORS headers in the response.
     pub fn default_response(&self) -> crate::reply::Response {
         self.into_response()
     }
